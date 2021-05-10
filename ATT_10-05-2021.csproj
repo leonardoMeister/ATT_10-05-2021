@@ -45,6 +45,9 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Telas\TelaBase.cs" />
+    <Compile Include="Telas\TelaPrincipal.cs" />
+    <Compile Include="Telas\TelaTriangulo.cs" />
     <Compile Include="Triangulo.cs" />
   </ItemGroup>
   <ItemGroup>

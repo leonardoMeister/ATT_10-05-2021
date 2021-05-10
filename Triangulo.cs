@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ATT_10_05_2021
 {
-    class Triangulo
+    public class Triangulo
     {
         private int id;
         private double ladoX;
@@ -14,9 +14,9 @@ namespace ATT_10_05_2021
         private double ladoZ;
         private static int idClass = 0;
 
-        protected double LadoX { get => ladoX; set => ladoX = value; }
-        protected double LadoY { get => ladoY; set => ladoY = value; }
-        protected double LadoZ { get => ladoZ; set => ladoZ = value; }
+        public double LadoX { get => ladoX; set => ladoX = value; }
+        public double LadoY { get => ladoY; set => ladoY = value; }
+        public double LadoZ { get => ladoZ; set => ladoZ = value; }
         public int Id { get => id; set => id = value; }
 
         public Triangulo(int id)
@@ -62,15 +62,15 @@ namespace ATT_10_05_2021
         public String TipoTriangulo()
         {
             string aux = "";
-            if (ladoZ != ladoY && ladoZ != ladoX)
+            if (ladoZ != ladoY && ladoZ != ladoX && ladoX != ladoY)
             {
                 aux = "Triângulo Escaleno";
-            } else if (ladoZ == ladoY && ladoZ == ladoX)
+            } else if (ladoZ == ladoY && ladoZ == ladoX && ladoY == ladoX)
             {
-                aux = "Triângulo equilátero";
+                aux = "Triângulo Equilátero";
             } else if ((ladoX == ladoY) || (ladoX == ladoZ) || (ladoZ == ladoY))
             {
-                aux = "Triângulo isósceles";
+                aux = "Triângulo Isósceles";
             } else
             {
                 aux = "Triangulo Indefinido ou Inválido";
