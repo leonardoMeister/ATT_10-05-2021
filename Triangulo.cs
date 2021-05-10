@@ -32,12 +32,46 @@ namespace ATT_10_05_2021
             Id = idClass;
             idClass++;
         }
+        private String RegraExistencia()
+        {
+            /*
+             10 – 9| < 5 < 10 + 9
+            1 < 5 <19 (VERDADEIRO)
+
+            |9 – 5| < 10 < 9 + 5
+            4 < 10 < 14 (VERDADEIRO)
+
+            |5 – 10| < 9 < 10 + 5
+            5 < 9 < 15 (VERDADEIRO)
+
+            | X - Z | < Y < X + Z
+            | Y - Z | < X < Y + Z
+            | Y - X | < Z < Y + X
+             */
+            // b = x
+            // a = y
+            // c = z
+
+            if (!((ladoX - ladoZ) < LadoY && ladoY < (ladoX + ladoZ)))
+            {
+                return "Regra Existencia Invalida";
+            }
+            else if (!((LadoY - ladoZ) < LadoX && ladoX < (ladoY + ladoZ)))
+            {
+                return "Regra Existencia Invalida";
+            }
+            else if (!((LadoY - ladoX) < LadoZ && ladoZ < (ladoY + ladoX)))
+            {
+                return "Regra Existencia Invalida";
+            }
+            return "";
+        }
 
         public String ValidarTriangulo()
         {
             string aux = "";
 
-            if (ladoX ==0)
+            if (ladoX == 0)
             {
                 aux += "Valor X inválido\n";
             }
@@ -51,6 +85,9 @@ namespace ATT_10_05_2021
                 aux += "Valor Z inválido\n";
 
             }
+
+            aux += RegraExistencia();
+
             if (aux == "")
             {
                 aux = "TRIANGULO_VALIDO";
@@ -65,13 +102,16 @@ namespace ATT_10_05_2021
             if (ladoZ != ladoY && ladoZ != ladoX && ladoX != ladoY)
             {
                 aux = "Triângulo Escaleno";
-            } else if (ladoZ == ladoY && ladoZ == ladoX && ladoY == ladoX)
+            }
+            else if (ladoZ == ladoY && ladoZ == ladoX && ladoY == ladoX)
             {
                 aux = "Triângulo Equilátero";
-            } else if ((ladoX == ladoY) || (ladoX == ladoZ) || (ladoZ == ladoY))
+            }
+            else if ((ladoX == ladoY) || (ladoX == ladoZ) || (ladoZ == ladoY))
             {
                 aux = "Triângulo Isósceles";
-            } else
+            }
+            else
             {
                 aux = "Triangulo Indefinido ou Inválido";
             }
